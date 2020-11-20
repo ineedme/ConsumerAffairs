@@ -7,7 +7,7 @@
 - [ ] Users are able to submit reviews to the API
 - [ ] Users are able to retrieve reviews that they submitted
 - [ ] Users cannot see reviews submitted by other users
-- [ ] Use of the API requires a unique auth token for each user
+- [X] Use of the API requires a unique auth token for each user
 - [X] Submitted reviews must include, at least, the following attributes:
   - [X] Rating - must be between 1 - 5
   - [X] Title - no more than 64 chars

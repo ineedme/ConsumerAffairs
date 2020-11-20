@@ -14,5 +14,11 @@ class ReviewAdmin(admin.ModelAdmin):
     search_fields = ("title",)
 
 
+class CompanyAdmin(admin.ModelAdmin):
+    list_display = ('id',
+                    'name',
+                    )
+
+
 admin.site.register(Review, ReviewAdmin)
-admin.site.register(Company)
+admin.site.register(Company, CompanyAdmin)
