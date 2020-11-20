@@ -58,6 +58,7 @@ class GetSingleReviewTest(TestCase):
 
     def setUp(self):
         self.user = User.objects.create_user("admin", "admin@consumeraffairs.com", "password_123")
+        self.other_user = User.objects.create_user("another", "another@consumeraffairs.com", "password_123")
         self.company = Company.objects.create(name="ConsumerAffairs")
         self.review = Review.objects.create(
             rating=1,
@@ -68,7 +69,9 @@ class GetSingleReviewTest(TestCase):
             reviewer=self.user
         )
         self.token = Token.objects.create(user=self.user)
+        self.other_token = Token.objects.create(user=self.other_user)
         self.header = {'HTTP_AUTHORIZATION': 'Token {}'.format(self.token.key)}
+        self.other_header = {'HTTP_AUTHORIZATION': 'Token {}'.format(self.other_token.key)}
 
     def test_get_valid_single_review(self):
         response = client.get(
@@ -87,6 +90,11 @@ class GetSingleReviewTest(TestCase):
         response = client.get(
             reverse('review-detail', kwargs={'pk': self.review.pk}))
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_get_valid_single_review_wrong_user(self):
+        response = client.get(
+            reverse('review-detail', kwargs={'pk': self.review.pk}), **self.other_header)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
 
 class CreateNewReviewTest(TestCase):
@@ -173,6 +181,9 @@ class UpdateSingleReviewTest(TestCase):
         }
         self.token = Token.objects.create(user=self.user)
         self.header = {'HTTP_AUTHORIZATION': 'Token {}'.format(self.token.key)}
+        self.other_user = User.objects.create_user("another", "another@consumeraffairs.com", "password_123")
+        self.other_token = Token.objects.create(user=self.other_user)
+        self.other_header = {'HTTP_AUTHORIZATION': 'Token {}'.format(self.other_token.key)}
 
     def test_valid_update_review(self):
         response = client.put(
@@ -200,6 +211,15 @@ class UpdateSingleReviewTest(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
+    def test_valid_update_review_wrong_user(self):
+        response = client.put(
+            reverse('review-detail', kwargs={'pk': self.review.pk}),
+            data=json.dumps(self.valid_payload),
+            content_type='application/json',
+            ** self.other_header,
+        )
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
 
 class DeleteSingleReviewTest(TestCase):
     """ Test module for deleting an existing Review record """
@@ -217,6 +237,9 @@ class DeleteSingleReviewTest(TestCase):
         )
         self.token = Token.objects.create(user=self.user)
         self.header = {'HTTP_AUTHORIZATION': 'Token {}'.format(self.token.key)}
+        self.other_user = User.objects.create_user("another", "another@consumeraffairs.com", "password_123")
+        self.other_token = Token.objects.create(user=self.other_user)
+        self.other_header = {'HTTP_AUTHORIZATION': 'Token {}'.format(self.other_token.key)}
 
     def test_valid_delete_review(self):
         response = client.delete(
@@ -232,3 +255,8 @@ class DeleteSingleReviewTest(TestCase):
         response = client.delete(
             reverse('review-detail', kwargs={'pk': self.review.pk}))
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_valid_delete_review_wrong_user(self):
+        response = client.delete(
+            reverse('review-detail', kwargs={'pk': self.review.pk}), **self.other_header)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
