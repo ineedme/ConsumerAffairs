@@ -7,7 +7,7 @@ from reviews.serializers import ReviewSerializer
 
 class ReviewViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows Reviews to be viewed or edited.
+    API endpoint that allows reviews to be viewed or edited.
     """
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer

@@ -107,17 +107,13 @@ class CreateNewReviewTest(TestCase):
             'rating': 1,
             'title': "Great Company",
             'summary': "Awesome Company to work",
-            'ip_address': "192.168.1.1",
             'company': self.company.id,
-            'reviewer': self.user.id
         }
         self.invalid_payload = {
             'rating': 1,
             'title': "",
             'summary': "",
-            'ip_address': "192.168.1.1",
             'company': self.company.id,
-            'reviewer': self.user.id
         }
         self.token = Token.objects.create(user=self.user)
         self.header = {'HTTP_AUTHORIZATION': 'Token {}'.format(self.token.key)}
@@ -167,17 +163,13 @@ class UpdateSingleReviewTest(TestCase):
             'rating': 2,
             'title': "Great Company",
             'summary': "Awesome Company to work",
-            'ip_address': "192.168.1.1",
             'company': self.company.id,
-            'reviewer': self.user.id
         }
         self.invalid_payload = {
             'rating': 1,
             'title': "",
             'summary': "",
-            'ip_address': "192.168.1.1",
             'company': self.company.id,
-            'reviewer': self.user.id
         }
         self.token = Token.objects.create(user=self.user)
         self.header = {'HTTP_AUTHORIZATION': 'Token {}'.format(self.token.key)}

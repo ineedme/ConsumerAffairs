@@ -92,7 +92,7 @@ formallyenv/
 virt_env/
 static/admin/
 static/django_extensions/
-migrations/
+*/migrations/*
 nohup.out
 media/
 .ipynb_checkpoints

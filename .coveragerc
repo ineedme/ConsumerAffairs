@@ -1,8 +1,7 @@
 [run]
 source = .
-omit = ./virt_env/*,*tests*,*apps.py,*manage.py,*migrations*,*asgi*,*wsgi*,*admin.py
+omit = ./virt_env/*,*test*,*apps.py,*manage.py,*migrations*,*asgi*,*wsgi*,*admin.py
 
 [report]
-omit = ./virt_env/*,*tests*,*apps.py,*manage.py,*migrations*,*asgi*,*wsgi*,*admin.py
+omit = ./virt_env/*,*test*,*apps.py,*manage.py,*migrations*,*asgi*,*wsgi*,*admin.py
 show_missing = True
-skip_covered = True
