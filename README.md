@@ -26,3 +26,8 @@
  
 Organize the schema and data models in whatever manner you think makes the most sense and feel free to add any additional style and flair to the project that you'd like.
  
+## Setup
+see Install details [here](Install.md)
+
+## Documentation
+see API Documentation [here](Docs.md)
