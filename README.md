@@ -17,8 +17,8 @@
   - [X] Company - information about the company for which the review was submitted, can be simple text (e.g., name, company id, etc.) or a separate model altogether
   - [X] Reviewer Metadata - information about the reviewer, can be simple text (e.g., name, email, reviewer id, etc.) or a separate model altogether
 - [X] Unit tests must be included providing 100% code coverage
-- [ ] Include instructions on local setup details for both “app setup” and “data setup”
-- [ ] Document the API
+- [X] Include instructions on local setup details for both “app setup” and “data setup”
+- [X] Document the API
  
 ### Optional: 
  
