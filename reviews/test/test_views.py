@@ -107,13 +107,13 @@ class CreateNewReviewTest(TestCase):
             'rating': 1,
             'title': "Great Company",
             'summary': "Awesome Company to work",
-            'company': self.company.id,
+            'company_id': self.company.id,
         }
         self.invalid_payload = {
             'rating': 1,
             'title': "",
             'summary': "",
-            'company': self.company.id,
+            'company_id': self.company.id,
         }
         self.token = Token.objects.create(user=self.user)
         self.header = {'HTTP_AUTHORIZATION': 'Token {}'.format(self.token.key)}
@@ -163,13 +163,13 @@ class UpdateSingleReviewTest(TestCase):
             'rating': 2,
             'title': "Great Company",
             'summary': "Awesome Company to work",
-            'company': self.company.id,
+            'company_id': self.company.id,
         }
         self.invalid_payload = {
             'rating': 1,
             'title': "",
             'summary': "",
-            'company': self.company.id,
+            'company_id': self.company.id,
         }
         self.token = Token.objects.create(user=self.user)
         self.header = {'HTTP_AUTHORIZATION': 'Token {}'.format(self.token.key)}
