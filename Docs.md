@@ -57,7 +57,10 @@ Reviews that had been submit by the current user.
         "summary": "Awesome Company to work",
         "ip_address": "192.168.10.51",
         "submitted_at": "2020-11-19T16:16:41.858000Z",
-        "company": 1,
+        "company": {
+            "id": 1,
+            "name": "ConsumerAffairs"
+        },
         "reviewer": 1
     },
     {
@@ -67,7 +70,10 @@ Reviews that had been submit by the current user.
         "summary": "Rotten",
         "ip_address": "192.168.1.1",
         "submitted_at": "2020-11-20T15:43:29Z",
-        "company": 1,
+        "company": {
+            "id": 1,
+            "name": "ConsumerAffairs"
+        },
         "reviewer": 1
     }
 ]
@@ -95,7 +101,7 @@ All fields must be sent.
     "rating": 1,
     "title": "Great Company",
     "summary": "Awesome Company to work",
-    "company": 1
+    "company_id": 1
 }
 ```
 
@@ -115,7 +121,10 @@ All fields must be sent.
     "summary": "Same Old",
     "ip_address": "127.0.0.1",
     "submitted_at": "2020-11-21T08:44:32.814878Z",
-    "company": 1,
+    "company": {
+        "id": 1,
+        "name": "ConsumerAffairs"
+    },
     "reviewer": 1
 }
 ```
@@ -174,7 +183,10 @@ User is the Reviewer of the Review requested:
         "summary": "Rotten",
         "ip_address": "192.168.1.1",
         "submitted_at": "2020-11-20T15:43:29Z",
-        "company": 1,
+        "company": {
+            "id": 1,
+            "name": "ConsumerAffairs"
+        },
         "reviewer": 1
     }
 ```
@@ -224,7 +236,7 @@ Update the Review of the Authenticated User.
     "rating": 1,
     "title": "Great Company",
     "summary": "Awesome Company to work",
-    "company": 1
+    "company_id": 1
 }
 ```
 
@@ -244,7 +256,10 @@ Update the Review of the Authenticated User.
         "summary": "Rotten",
         "ip_address": "192.168.1.1",
         "submitted_at": "2020-11-20T15:43:29Z",
-        "company": 1,
+        "company": {
+            "id": 1,
+            "name": "ConsumerAffairs"
+        },
         "reviewer": 1
     }
 ```
@@ -300,7 +315,10 @@ E.g. if Reviewer already exits:
         "summary": "Rotten",
         "ip_address": "192.168.1.1",
         "submitted_at": "2020-11-20T15:43:29Z",
-        "company": 1,
+        "company": {
+            "id": 1,
+            "name": "ConsumerAffairs"
+        },
         "reviewer": 1
     }
 ```
